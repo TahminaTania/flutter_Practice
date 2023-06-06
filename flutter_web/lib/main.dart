@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_web/screens/bloc/bloc_home.dart';
+import 'package:flutter_web/screens/bloc/bloc_page.dart';
 //import 'package:flutter_web/screens/backdrop_filter.dart';
 import 'package:flutter_web/screens/transforn_widget.dart';
 //import 'package:flutter_web/screens/animated_cross-fade.dart';
@@ -18,32 +21,52 @@ void main() {
   runApp(const MyApp());
 }
 
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+
+//   // This widget is the root of your application.
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Flutter Demo',
+//       theme: ThemeData(
+//         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+//         useMaterial3: true,
+//       ),
+//       // home: const MyHomePage(),
+//       // home:ModelBottomSheet()
+//       //home: AlertDialouge()
+//       // home:CurvedNavigation()
+//       //home: CustomDialouge()
+//       //home: SnackBarPage() didn't worked on web
+//       //home: ToastPage(),
+//       //home:SliderPage()
+//       //home:RichTextPage()
+//       //home: DismissiblePage()
+//       // home: AnimatedCrossFadePage()
+//       // home: ExpansionTileExample()
+//       // home: BackDropPage()
+//       //home: TransformWidget(),
+//     );
+//   }
+// }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return BlocProvider(
+      create: (context) => MypageBloc(),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: BlocHome(),
       ),
-      // home: const MyHomePage(),
-      // home:ModelBottomSheet()
-      //home: AlertDialouge()
-      // home:CurvedNavigation()
-      //home: CustomDialouge()
-      //home: SnackBarPage() didn't worked on web
-      //home: ToastPage(),
-      //home:SliderPage()
-      //home:RichTextPage()
-      //home: DismissiblePage()
-      // home: AnimatedCrossFadePage()
-      // home: ExpansionTileExample()
-      // home: BackDropPage()
-      home: TransformWidget(),
     );
   }
 }
